@@ -59,7 +59,7 @@
         <com.rey.material.widget.CheckBox
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/ckb"
+            android:id="@+id/ckbRemember"
             android:layout_weight="1"
             android:text="Remember Me"
             android:textColor="@android:color/black"

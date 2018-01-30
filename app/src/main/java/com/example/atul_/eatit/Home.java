@@ -31,6 +31,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
+import io.paperdb.Paper;
+
 public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     FirebaseDatabase database;
     DatabaseReference category;
@@ -50,6 +52,9 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         database = FirebaseDatabase.getInstance();
         category = database.getReference("Category");
+
+        Paper.init(this);
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -139,6 +144,8 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 } else if (id == R.id.nav_order) {
 
                 } else if (id == R.id.nav_logout) {
+
+                     Paper.book().destroy();
 
                 }
 
