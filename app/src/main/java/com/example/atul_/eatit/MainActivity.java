@@ -21,6 +21,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import io.paperdb.Paper;
 
+import static com.example.atul_.eatit.R.id.ckbRemember;
+
 public class MainActivity extends AppCompatActivity {
     Button btnSignIn ,btnSignUp;
     TextView txtSlogan;
@@ -69,11 +71,10 @@ public class MainActivity extends AppCompatActivity {
     private void login(final String phone, final String pwd) {
 
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference table_user = database.getReference("User");
 
         if (Common.isConnectedToInternet(getBaseContext())) {
-
 
 
 
@@ -84,12 +85,15 @@ public class MainActivity extends AppCompatActivity {
             mDialog.setMessage("Please wait");
             mDialog.show();
 
+
             table_user.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     if (dataSnapshot.child(phone).exists()) {
                         mDialog.dismiss();
                         User user = dataSnapshot.child(phone).getValue(User.class);
+
+
                         if (user.getPassword().equals(pwd)) {
                             Intent homeIntent = new Intent(MainActivity.this, Home.class);
                             Common.currentUser = user;
@@ -119,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-}
+    }
 
 
 }

@@ -84,7 +84,17 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         recycler_menu.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recycler_menu.setLayoutManager(layoutManager);
+
+        if(!Common.isConnectedToInternet(this))
+
+
         loadMenu();
+         else {
+            Toast.makeText(this, "Please check your connection", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+
     }
 
     private void loadMenu() {
@@ -146,6 +156,11 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 } else if (id == R.id.nav_logout) {
 
                      Paper.book().destroy();
+
+
+                     Intent signIn=new Intent(Home.this,SignIn.class);
+                     signIn.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                     startActivity(signIn);
 
                 }
 

@@ -56,11 +56,6 @@ public class SignIn extends AppCompatActivity {
                 if (Common.isConnectedToInternet(getBaseContext())) {
 
 
-                    if (ckbRemember.isChecked()) {
-                        Paper.book().write(Common.USER_KEY, edtPhone.getText().toString());
-                        Paper.book().write(Common.PWD_KEY, edtPassword.getText().toString());
-                    }
-
 
                     final ProgressDialog mDialog = new ProgressDialog(SignIn.this);
                     mDialog.setMessage("Please wait");

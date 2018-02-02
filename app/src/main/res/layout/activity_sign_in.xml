@@ -57,9 +57,10 @@
             android:orientation="horizontal" >
 
         <com.rey.material.widget.CheckBox
+            android:id="@+id/ckbRemember"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/ckbRemember"
+            style="@style/Material.Drawable.CheckBox"
             android:layout_weight="1"
             android:text="Remember Me"
             android:textColor="@android:color/black"

@@ -6,8 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
+import com.example.atul_.eatit.Common.Common;
 import com.example.atul_.eatit.model.Food;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -53,7 +55,16 @@ public class FoodDetail extends AppCompatActivity {
         if (getIntent() != null)
             foodId = getIntent().getStringExtra("FoodId");
         if (!foodId.isEmpty()) {
-            getDetailFood(foodId);
+
+            if(Common.isConnectedToInternet(getBaseContext()))
+                getDetailFood(foodId);
+
+
+            else
+            {
+                Toast.makeText(FoodDetail.this,"Please check your connection",Toast.LENGTH_SHORT).show();
+                return;
+            }
         }
      }
 
