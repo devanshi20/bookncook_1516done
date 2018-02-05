@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                     if (dataSnapshot.child(phone).exists()) {
                         mDialog.dismiss();
                         User user = dataSnapshot.child(phone).getValue(User.class);
-
+                        //user.setPhone(phone);
 
                         if (user.getPassword().equals(pwd)) {
                             Intent homeIntent = new Intent(MainActivity.this, Home.class);

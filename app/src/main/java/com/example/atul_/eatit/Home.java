@@ -85,7 +85,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         layoutManager = new LinearLayoutManager(this);
         recycler_menu.setLayoutManager(layoutManager);
 
-        if(!Common.isConnectedToInternet(this))
+        if(Common.isConnectedToInternet(this))
 
 
         loadMenu();
@@ -131,12 +131,15 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
             public boolean onCreateOptionsMenu(Menu menu) {
                 // Inflate the menu; this adds items to the action bar if it is present.
-                MenuInflater inflater=getMenuInflater();
-                inflater.inflate(R.menu.activity_home_drawer, menu);
+                getMenuInflater().inflate(R.menu.home,menu);
                 return true;
             }
 
             public boolean onOptionsItemSelected(MenuItem item) {
+
+                if (item.getItemId() == R.id.refresh)
+                    loadMenu();
+
 
 
                 return super.onOptionsItemSelected(item);
