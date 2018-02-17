@@ -56,7 +56,7 @@
             android:weightSum="2"
             android:orientation="horizontal" >
 
-        <com.rey.material.widget.CheckBox
+        <CheckBox
             android:id="@+id/ckbRemember"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
